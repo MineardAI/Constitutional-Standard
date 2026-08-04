@@ -1,20 +1,22 @@
 # Constitutional Standard
 
-Constitutional Standard is a constitutional envelope and deterministic Reference Foundation for governed artificial intelligence.
+Constitutional Standard is a constitutional envelope and deterministic Reference Foundation for governed artificial intelligence. It gives AI systems a typed, inspectable way to carry source, scope, authority-boundary, provenance, verification, evidence, and lifecycle context without becoming an execution engine or source of authority.
 
 ![Constitutional Standard](implementation/docs/Constitutional-Standard-image.png)
+
+A small, non-sovereign foundation for making governed AI operations explicit, reproducible, and reviewable.
 
 ## What it is
 
 The project provides a bounded, typed Rust realization of the records and checks needed to describe an AI operation in constitutional context. It makes source admission, authority boundaries, identity and participation, artifact provenance, state, interaction boundaries, canonical representation, traceability, verification, evidence, release continuity, and operational-recognition records explicit and inspectable.
 
-It is a reference implementation. It does not adopt a constitution, decide what is true, grant authority, certify conformance, or operate an AI system.
+It is a reference implementation, not an adopted constitution or operating system for AI.
 
 ## Why it exists
 
 Governed AI needs more than an input and an output. A reviewable operation also needs a declared source set, baseline, jurisdiction, scope, effective times, implementation version, provenance, verification obligations, evidence references, and explicit limits on what a record means.
 
-Constitutional Standard supplies deterministic data structures and validation boundaries for those concerns. The result is a small foundation that can be inspected, tested, serialized, and connected to a larger governed system without silently becoming that system's sovereign authority or execution engine.
+Constitutional Standard supplies deterministic data structures and validation boundaries for those concerns. The result can be inspected, tested, serialized, and connected to a larger governed system while remaining separate from that system's authority and execution paths.
 
 ## Current implementation
 
@@ -22,52 +24,46 @@ The current public implementation is `reference-foundation-0.15.0`. It contains 
 
 | Domain | Implemented responsibility |
 | --- | --- |
-| Contracts | Shared identifiers, references, findings, timestamps, source and implementation records |
-| Source admission | Typed admission records and fail-closed handling of unavailable or conflicting source input |
-| Context | Operation-scoped resolution of required sources, baseline, jurisdiction, scope, times, and boundaries |
-| Authority | Explicit authority evaluation records with claims, basis, findings, and non-claims |
-| Identity and participation | Canonical identity and participation records without asserting real-world identity or agency |
-| Artifacts and provenance | Artifact references, provenance, custody, and origin records |
-| State and transition | Typed state and transition records with bounded transition findings |
+| Contracts | Shared identifiers, references, findings, times, and implementation records |
+| Source admission | Typed admission records with fail-closed conflict handling |
+| Context | Operation-scoped source, baseline, jurisdiction, scope, time, and boundary resolution |
+| Authority | Authority evaluation records with claims, basis, findings, and non-claims |
+| Identity and participation | Canonical records without asserting real-world identity or agency |
+| Artifacts and provenance | Artifact references, origin, custody, and provenance |
+| State and transition | Typed state and transition records with bounded findings |
 | Interaction and boundary | Interaction records and explicit boundary conditions |
-| Canonical representation | Strict, deterministic, line-oriented encodings, decoding, validation, and identity digests |
-| Traceability | Source-to-requirement-to-component-to-test/evidence mappings and graph validation |
-| Verification and assurance | Typed verification activities, findings, assessments, and bounded assurance results |
-| Evidence and provenance | Evidence objects, origins, custody, integrity, conflicts, admission, and sufficiency boundaries |
-| Release continuity | Release records, compatibility, change impact, and continuity relationships |
-| Activation and recognition | Typed activation and operational-recognition records that remain non-executing and non-authoritative |
+| Canonical representation | Strict line-oriented encoding, decoding, validation, and identity digests |
+| Traceability | Source-to-requirement-to-component-to-test/evidence mappings and graph checks |
+| Verification and assurance | Typed activities, findings, assessments, and bounded assurance results |
+| Evidence and provenance | Evidence objects, origin, custody, integrity, conflict, and sufficiency boundaries |
+| Release continuity | Release records, compatibility, impact, and continuity relationships |
+| Activation and recognition | Typed records that remain non-executing and non-authoritative |
 
-These domains record and validate declared information. They do not infer constitutional meaning, resolve unresolved authority, invoke represented components, persist state, transport messages, or perform an operation.
+These domains record and validate declared information. They do not infer constitutional meaning, invoke represented components, persist state, transport messages, or perform an operation.
 
 ## Architecture
 
 The workspace is organized as small Rust crates with explicit responsibilities:
 
 ```text
-constitutional-contracts
-        |
-        +--> source-admission --> context --> core
-        |
-        +--> authority, identity, artifacts, state, interaction
-        |
-        +--> canonical <--> validation
-        |
-        +--> traceability --> evidence --> release --> activation
+constitutional-contracts  -> shared types and findings
+constitutional-source-admission -> constitutional-context -> constitutional-core
+constitutional-authority, identity, artifacts, state, interaction
+constitutional-canonical <-> constitutional-validation
+constitutional-traceability, evidence, release, activation
 ```
 
-`constitutional-test-support` provides shared fixture construction for the workspace tests. The public crate boundaries and responsibilities are catalogued in [`implementation/docs/COMPONENT_CATALOG.md`](implementation/docs/COMPONENT_CATALOG.md) and [`implementation/docs/COMPONENT_RESPONSIBILITY_MATRIX.md`](implementation/docs/COMPONENT_RESPONSIBILITY_MATRIX.md).
+The arrows show the workspace relationships represented by the crate manifests; the final line groups the lifecycle and evidence-oriented crates. `constitutional-test-support` provides shared fixtures for tests. See the [component catalog](implementation/docs/COMPONENT_CATALOG.md) and [responsibility matrix](implementation/docs/COMPONENT_RESPONSIBILITY_MATRIX.md) for the public crate boundaries.
 
-## Determinism and traceability
+## Determinism, evidence, and continuity
 
-Canonical representations use an explicit format and version, ordered fields, typed values, strict decoding, and stable identity digests. Non-canonical input is rejected rather than normalized silently. Canonical output is therefore suitable for repeatable comparison and evidence binding within this reference profile; it is not a universal wire protocol or a substitute for constitutional interpretation.
+Canonical representations use an explicit format and version, ordered fields, typed values, strict decoding, and stable identity digests. Non-canonical input is rejected rather than normalized silently. This supports repeatable comparison and evidence binding within the reference profile; it is not a universal wire protocol or a substitute for constitutional interpretation.
 
-Traceability records relationships among sources, requirements, components, artifacts, implementation versions, verification activities, evidence, gates, and lifecycle records. A traceability result describes the graph that was checked. It does not prove correctness, establish conformance, authorize a release, or certify a system.
+Traceability records relationships among sources, requirements, components, artifacts, implementation versions, verification activities, evidence, gates, and lifecycle records. Verification and evidence records preserve what was checked, against which scope and implementation version, and with which findings.
 
-Verification and evidence are similarly bounded. They preserve what was checked, by whom or what record, against which scope and implementation version, and with which findings. They do not convert a test result or evidence package into constitutional authority.
+Release continuity and activation records describe declared compatibility, lifecycle relationships, activation conditions, and operational-recognition boundaries. All of these are records and checks; none performs the action it describes.
 
-Release continuity and activation records describe declared compatibility, lifecycle relationships, activation conditions, and operational-recognition boundaries. Creating such a record does not release software, activate a system, or recognize operational effectiveness.
-
-## Non-sovereign, non-executing design
+## Design boundaries
 
 The Reference Foundation is deliberately non-sovereign and non-executing:
 
@@ -75,12 +71,11 @@ The Reference Foundation is deliberately non-sovereign and non-executing:
 - it does not adopt or amend a constitution;
 - it does not decide whether a constitutional source is substantively correct;
 - it does not execute AI actions, make operational decisions, or compel downstream behavior;
-- it does not provide transport, persistence, deployment, orchestration, secrets management, or a production control plane;
-- it does not claim certification, conformance, production readiness, or real-world operational effectiveness.
+- it does not provide transport, persistence, deployment, orchestration, secrets management, or a production control plane.
 
-Unknown, missing, conflicting, ambiguous, or out-of-scope inputs are represented as typed findings or indeterminate results where the relevant API requires it.
+Unknown, missing, conflicting, ambiguous, or out-of-scope inputs are represented as typed findings or indeterminate results where the relevant API requires it. The foundation does not turn those records into authority, certification, conformance, or operational effectiveness.
 
-## Repository structure
+## Start with the implementation
 
 - [`implementation/Cargo.toml`](implementation/Cargo.toml) — Rust workspace manifest.
 - [`implementation/crates/`](implementation/crates/) — public implementation crates and tests.
@@ -120,7 +115,7 @@ The workspace targets Rust edition 2024 and forbids unsafe Rust at the workspace
 
 `reference-foundation-0.15.0` is the current implementation version represented by the public workspace. It is a bounded reference implementation, not a 1.0 authorization, constitutional adoption, certification, or production release.
 
-The implementation does not supply constitutional source interpretation, governance policy, external identity proofing, an execution runtime, deployment automation, persistence, transport, a registry, a security boundary, or an operational authority. Integrators remain responsible for their own source governance, infrastructure, threat model, access control, data handling, and deployment decisions.
+It does not supply constitutional source interpretation, governance policy, external identity proofing, an execution runtime, deployment automation, persistence, transport, a registry, a security boundary, or operational authority. Integrators remain responsible for source governance, infrastructure, threat modeling, access control, data handling, and deployment decisions.
 
 ## Contributing
 
@@ -130,8 +125,8 @@ There is not currently a separate contribution policy in this repository. The im
 
 ## Security
 
-Do not commit credentials, private keys, personal data, or production evidence to this repository. A dedicated security policy is not currently included; report suspected vulnerabilities privately to the project maintainers rather than publishing exploitable details in an issue.
+Do not commit credentials, private keys, personal data, or production evidence to this repository. See [`SECURITY.md`](SECURITY.md) for private vulnerability-reporting instructions.
 
 ## License
 
-No public open-source license is currently provided. The workspace metadata identifies the implementation as `UNLICENSED`; obtain permission from the project owner before copying, modifying, or redistributing it.
+This project is licensed under the [Apache License, Version 2.0](LICENSE). The workspace metadata identifies the implementation and its member crates as `Apache-2.0`. See [`NOTICE`](NOTICE) for the project attribution notice.
