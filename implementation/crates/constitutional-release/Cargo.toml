@@ -1,0 +1,13 @@
+[package]
+name = "constitutional-release"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+constitutional-contracts = { path = "../constitutional-contracts" }
+constitutional-canonical = { path = "../constitutional-canonical" }
+constitutional-evidence = { path = "../constitutional-evidence" }
+constitutional-traceability = { path = "../constitutional-traceability" }
+
+[lints]
+workspace = true

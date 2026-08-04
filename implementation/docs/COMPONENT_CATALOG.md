@@ -1,0 +1,20 @@
+# Component Catalog
+
+| Component | Responsibility | Boundary |
+|---|---|---|
+| constitutional-contracts | Stable identifiers, references, contexts, findings, and result contracts | No domain decisions or persistence |
+| constitutional-context | Fixture source catalog and fail-closed context resolution | Resolution does not create authority |
+| constitutional-canonical | Shared IMP-005 canonical representation types, deterministic strict reference binding, domain canonical wrappers, round-trip checks, bounded compatibility, and non-authoritative identity digest | Representation/serialization is not constitutional identity, validity, admission, persistence, transport, authority, or effect |
+| constitutional-validation | Structural/contextual findings plus bounded IMP-006 verification and assurance records/evaluation | Verification/assurance does not establish truth, evidence sufficiency, conformance, certification, release, activation, or operational recognition |
+| constitutional-traceability | Typed IMP-004 trace subjects, relations, source/version bindings, mappings, and deterministic structural validation | Traceability does not adjudicate correctness, create authority, or establish conformance |
+| constitutional-evidence | Typed IMP-007 evidence objects, subjects, provenance, custody, integrity, admission, sufficiency, and packages | Evidence is not a conclusion, truth, assurance, or authority |
+| constitutional-release | Typed IMP-008 released implementations, manifests, continuity, compatibility, change effects, and migration declarations | Release is not publication, activation, deployment, authority, conformance, certification, or operational recognition |
+| constitutional-activation | Typed IMP-009 eligibility, activation, operational assignment, activation acts/effects, recognition, standing, and historical transition records | No deployment, runtime execution, publication, self-authorization, authority creation, conformance, certification, or operational effectiveness |
+| constitutional-test-support | Deterministic fixtures and builders | Test-only; no hidden normative behavior |
+| constitutional-source-admission | Declared-root discovery, bounded metadata inspection, digesting, admission, and source-set conflict detection | No interpretation, applicability, authority, persistence, or network behavior |
+| constitutional-authority | Bounded CORE-001 authority, jurisdiction, scope, constraint, delegation, and determination evaluation | No identity, participation, execution, persistence, enforcement, conformance, or certification |
+| constitutional-identity | Bounded CORE-002 identity, distinction, continuity, participation, scope, constraint, and determination evaluation | No authentication, credentials, accounts, authority evaluation, execution, persistence, or certification |
+| constitutional-artifacts | Bounded CORE-003 artifact identity/instance, recognition, provenance, lineage, integrity, relationship, replay, copy, and preservation evaluation | No storage, publication service, signing, truth/effectiveness assessment, evidence assessment, persistence, or certification |
+| constitutional-state | Bounded CORE-004 state claims, transition admission/support, preconditions, invariants, projections, continuity, and relationships | No runtime mutation, workflow, execution, persistence, policy enforcement, or operational recognition |
+| constitutional-interaction | Bounded CORE-005 interaction/boundary claims, roles, crossings, handoffs, responses, propagation, containment, relationships, determinations, and projections | No transport, transmission, receipt, execution, mutation, authority creation/transfer, persistence, enforcement, conformance, or operational recognition |
+| constitutional-core | Bounded composition and closure of existing CORE domain results, dependencies, bindings, invariants, conflicts, scope, history, and evidence | No domain reinterpretation, authority creation, execution, effect, persistence, transport, conformance, certification, activation, or operational recognition |

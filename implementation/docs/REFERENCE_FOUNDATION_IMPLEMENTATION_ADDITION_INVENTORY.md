@@ -1,0 +1,39 @@
+# Reference Foundation Implementation Addition Inventory
+
+This inventory identifies material constructs not expressly named in the original source wording. “Addition” means a realization detail or public shape, not necessarily an error. The source differentiation audit is authoritative for classification.
+
+| Addition ID | Construct | Domain | First appearance | Source language supporting it | Architecture record supporting it | Reason added | New obligations created | Closure impact | Recommendation |
+|---|---|---|---|---|---|---|---|---|---|
+| ADD-001 | 38 typed identifier families | all | Phases 1–16 | Identity, attribution, version, and record distinctions | AFD-002; IMP-001/002 | Type safety and deterministic references | Constructors, malformed-ID findings, bindings, canonical identity | Low; mostly harmless detail | PRESERVE_REVIEWED_DESIGN |
+| ADD-002 | Domain finding-code enums | all | Phases 1–16 | Source prohibitions and validation obligations | IMP-006/003 profiles | Fail-closed diagnostics | Reachability, deterministic ordering, focused tests | Medium; later audits treated enum inventory as closure | PRESERVE_OPTIONAL |
+| ADD-003 | Non-authority result flags | all | Phases 1–16 | IMP-000/005/006 non-sovereignty | ownership/boundary matrices | Make prohibited effects observable | Boundary tests and result propagation | Low | PRESERVE_REVIEWED_DESIGN |
+| ADD-004 | Shared canonical representation model | canonical | Phase 12 | IMP-005 representation distinctions | canonical profiles; AFD-002 | One deterministic strict realization | Encoding/decoding/round-trip rules | Medium | PRESERVE_REVIEWED_DESIGN |
+| ADD-005 | Domain canonical wrappers | canonical/domain | Phases 6–16 | IMP-005 identity/representation preservation | canonical realization profiles | Preserve domain ownership while encoding | Canonical field maps and test surfaces | Medium | PRESERVE_REVIEWED_DESIGN |
+| ADD-006 | Validation contexts | validation/evidence/release/activation | Phases 13–16 | Source scope/context requirements | ownership/dependency matrices | Resolve typed cross-record inputs | Context completeness and version checks | Medium | PRESERVE_OPTIONAL |
+| ADD-007 | Recognition criteria/findings/statuses | activation | Remediation 2 | IMP-009 recognition/limitations only indirectly support them | no exact architecture mandate | Make recognition outcome validation concrete | Finding identity, criterion resolution, statuses, conditions, canonical record checks | High; MAJ-002 | RECONSIDER_AFTER_CLOSURE |
+| ADD-008 | Recognition conditions and limitations arrays | activation | Remediation 2 | IMP-009 baseline includes limitations; exact ownership not prescribed | activation realization profile | Preserve decision/record content | Context resolution, duplicate/unknown checks | High; MAJ-002 | PRESERVE_OPTIONAL |
+| ADD-009 | HistoricalTransition.sequence | activation | Remediation 2 | Ordered history is a reasonable derivation | second remediation matrix | Deterministic history ordering | Duplicate/gap/predecessor checks | High; MAJ-001 | RECONSIDER_AFTER_CLOSURE |
+| ADD-010 | HistoricalTransition predecessor-by-sequence rule | activation | Remediation 2 | Historical continuity | second remediation matrix | Detect orphan/gap history | Sequence origin/predecessor semantics | High; partly unsupported | REMOVE_FROM_CLOSURE_CRITERIA |
+| ADD-011 | RecognitionStandingTransition | activation | Remediation 3 | Suspension/non-erasure/rollback invariants | third scope | Close recognition history gap | New transition table and history tests | Medium | RECONSIDER_AFTER_CLOSURE |
+| ADD-012 | LifecycleCorrection | activation | Remediation 3 | IMP-007 historical preservation applied by derivation | third scope | Avoid silent lifecycle overwrite | Replacement/predecessor/version links | Medium | RECONSIDER_AFTER_CLOSURE |
+| ADD-013 | Custody event identity | evidence | Remediation 3 | IMP-007 custody history/event attribution | third scope | Event-level resolvability | Stable identity and duplicate tests | Medium/high | PRESERVE_REVIEWED_DESIGN |
+| ADD-014 | Custody chain identity | evidence | Remediation 3 | IMP-007 evidence identity/custody history | third scope | Prevent cross-chain substitution | Chain membership checks | Medium | PRESERVE_REVIEWED_DESIGN |
+| ADD-015 | Custody sequence field | evidence | Remediation 3 | Not expressly required; deterministic ordering is derived | third scope | Deterministic event ordering | Duplicate/out-of-order rules | High if constitutionalized | REMOVE_FROM_CLOSURE_CRITERIA |
+| ADD-016 | Custody predecessor field | evidence | Remediation 3 | Not expressly required; resolvability is derived | third scope | Event continuity | Predecessor resolution/self-reference tests | High if constitutionalized | REMOVE_FROM_CLOSURE_CRITERIA |
+| ADD-017 | Custody gap finding | evidence | Remediation 3 | IMP-007 §12.4 explicitly requires recorded gap and no automatic invalidity | third scope | Make gap behavior observable | Profile-controlled fatality and limitation handling | Low/source-grounded | PRESERVE_REQUIRED |
+| ADD-018 | Migration graph cycle detection | release | Remediation 2 | No explicit acyclicity clause | second remediation matrix | Audit-requested graph closure | DFS, deterministic graph traversal, cycle tests | High; unsupported blocker | REMOVE_FROM_CLOSURE_CRITERIA |
+| ADD-019 | Supersession graph cycle detection | release | Remediation 2 | Historical preservation does not require acyclicity | second remediation matrix | Audit-requested graph closure | Reciprocal/cycle logic and tests | High | REMOVE_FROM_CLOSURE_CRITERIA |
+| ADD-020 | ReleaseHistoryAttachment | release | Remediation 3 | Successor applicability/history continuity | third scope | Resolve attached records | Attachment identity/release/version checks | Medium | PRESERVE_REVIEWED_DESIGN |
+| ADD-021 | ReleaseOperationalTrace | release | Remediation 3 | IMP-008 boundary + IMP-009 assignment binding | third scope | Typed cross-domain chain | Subject/release/version completeness | Medium/high | PRESERVE_REVIEWED_DESIGN |
+| ADD-022 | Opaque activation/recognition string lists | release | Remediation 2 | No source requires raw string lists | second remediation report | Fast cross-domain membership check | Caller-supplied list resolution and later replacement | High | CORRECT_REQUIRED |
+| ADD-023 | Compatibility contradiction identity tuple | release | Remediation 2/3 | IMP-008 contextual/directional compatibility | release profile | Deterministic contradiction detection | Context field comparison and finding tests | Medium | PRESERVE_REVIEWED_DESIGN |
+| ADD-024 | ActivationTraceabilityBinding | activation | Remediation 2 | IMP-004 traceability plus IMP-009 records | ownership matrix | End-to-end reference membership | Chain IDs/version/subject checks | Medium | CORRECT_REQUIRED |
+| ADD-025 | Public typed remediation contexts | activation/evidence/release | Remediation 3 | Source requires outcomes, not exact public context types | third scope | Reuse focused validator inputs | Public API stability and future canonical questions | Medium | RECONSIDER_AFTER_CLOSURE |
+
+## Addition causation summary
+
+The most consequential additions were recognition schema objects, graph validators, sequence/predecessor mechanisms, and opaque or typed cross-domain trace links. They were not all wrong; they became problematic when their incomplete realization was treated as constitutional closure failure. The freeze correctly narrows independent closure criteria to source-grounded behavior.
+
+## Recommended treatment
+
+Preserve source-required and reviewed architecture. Correct source omissions. Keep optional additions as implementation detail. Remove optional additions from closure criteria without deleting code. Reconsider remediation-introduced public APIs after closure rather than expanding the current constitutional audit surface.

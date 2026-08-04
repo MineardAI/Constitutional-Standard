@@ -1,0 +1,11 @@
+[package]
+name = "constitutional-context"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+constitutional-contracts = { path = "../constitutional-contracts" }
+
+[lints]
+workspace = true
+

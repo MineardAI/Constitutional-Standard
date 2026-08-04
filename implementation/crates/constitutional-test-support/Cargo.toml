@@ -1,0 +1,12 @@
+[package]
+name = "constitutional-test-support"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+constitutional-contracts = { path = "../constitutional-contracts" }
+constitutional-context = { path = "../constitutional-context" }
+
+[lints]
+workspace = true
+

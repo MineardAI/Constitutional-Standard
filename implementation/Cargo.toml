@@ -1,0 +1,28 @@
+[workspace]
+members = [
+    "crates/constitutional-contracts",
+    "crates/constitutional-context",
+    "crates/constitutional-canonical",
+    "crates/constitutional-validation",
+    "crates/constitutional-traceability",
+    "crates/constitutional-evidence",
+    "crates/constitutional-release",
+    "crates/constitutional-activation",
+    "crates/constitutional-test-support",
+    "crates/constitutional-source-admission",
+    "crates/constitutional-authority",
+    "crates/constitutional-identity",
+    "crates/constitutional-artifacts",
+    "crates/constitutional-state",
+    "crates/constitutional-interaction",
+    "crates/constitutional-core",
+]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+version = "0.15.0"
+license = "UNLICENSED"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"

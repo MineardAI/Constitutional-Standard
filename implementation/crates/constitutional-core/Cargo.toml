@@ -1,0 +1,16 @@
+[package]
+name = "constitutional-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+constitutional-contracts = { path = "../constitutional-contracts" }
+constitutional-authority = { path = "../constitutional-authority" }
+constitutional-identity = { path = "../constitutional-identity" }
+constitutional-artifacts = { path = "../constitutional-artifacts" }
+constitutional-state = { path = "../constitutional-state" }
+constitutional-interaction = { path = "../constitutional-interaction" }
+
+[lints]
+workspace = true

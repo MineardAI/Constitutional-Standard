@@ -1,0 +1,17 @@
+[package]
+name = "constitutional-evidence"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+constitutional-contracts = { path = "../constitutional-contracts" }
+constitutional-context = { path = "../constitutional-context" }
+constitutional-traceability = { path = "../constitutional-traceability" }
+constitutional-canonical = { path = "../constitutional-canonical" }
+
+[dev-dependencies]
+constitutional-test-support = { path = "../constitutional-test-support" }
+constitutional-validation = { path = "../constitutional-validation" }
+
+[lints]
+workspace = true

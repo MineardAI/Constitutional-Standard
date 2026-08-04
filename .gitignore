@@ -1,0 +1,65 @@
+# Rust build output
+implementation/target/
+**/target/
+
+# Local editor and OS output
+.vscode/
+.idea/
+.vs/
+.fleet/
+.history/
+*.user
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+*.local
+*.local.*
+credentials.*
+secrets.*
+config.local.*
+settings.local.*
+
+# Secrets and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Temporary files and logs
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+
+# Internal constitutional source and governance corpus; retained locally
+CORE-*
+IMP-*
+BASE-*
+GOV-*
+REG-*
+META-*
+OPS-*
+Contract Plan.md
+MACS GOVERNANCE/
+harmonization-v1.0/
+
+# Internal implementation planning and closure records
+implementation/Cargo.lock
+implementation/docs/*PLAN*.md
+implementation/evidence/EV-IMP-PLAN-*.md
+implementation/docs/REFERENCE_FOUNDATION_CONTRACT_DERIVED_*.md
+implementation/docs/REFERENCE_FOUNDATION_CLOSURE_SCOPE_CORRECTION_REPORT.md
+implementation/docs/REFERENCE_FOUNDATION_V1_*CLOSURE*.md
+implementation/evidence/EV-CONTRACT-DERIVED-*.md
+implementation/evidence/EV-CLOSURE-*.md

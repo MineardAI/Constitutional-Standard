@@ -1,0 +1,16 @@
+[package]
+name = "constitutional-source-admission"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+constitutional-contracts = { path = "../constitutional-contracts" }
+
+[dev-dependencies]
+constitutional-context = { path = "../constitutional-context" }
+constitutional-canonical = { path = "../constitutional-canonical" }
+constitutional-test-support = { path = "../constitutional-test-support" }
+
+[lints]
+workspace = true
+
